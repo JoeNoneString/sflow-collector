@@ -38,7 +38,8 @@ class SFlow(app_manager.RyuApp):
         tmp = packet.__dict__['samples'][0].__dict__['sample'].__dict__
         #print tmp
         if tmp.has_key('flow_records'):
-             print tmp['flow_records'][1].__dict__['flow_data'].__dict__['header'][30:37]
+             t1 = tmp['flow_records'][1].__dict__['flow_data'].__dict__['header']
+             print t1[30:38], "dMAC:", t1[0:6],"sMAC:", t1[6:11]
         else:
             print "--NULL---"
 
