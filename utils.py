@@ -21,8 +21,9 @@ def spawn(*args, **kwargs):
             # log uncaught exception.
             # note: this is an intentional divergence from gevent
             # behaviour.  gevent silently ignores such exceptions.
-            LOG.error('Uncaught Exception: %s',
-                      traceback.format_exc())
+            #LOG.error('Uncaught Exception: %s',
+            #          traceback.format_exc())
+            pass
 
     return eventlet.spawn(_launch, *args, **kwargs)
 

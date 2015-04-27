@@ -31,7 +31,16 @@ class SFlow(app_manager.RyuApp):
         if not packet:
             return
 
-        print packet.__dict__['samples']
+        # import pdb
+        # pdb.set_trace()
+        # print packet.__dict__['samples'][0].__dict__['sample'].__dict__
+
+        tmp = packet.__dict__['samples'][0].__dict__['sample'].__dict__
+        #print tmp
+        if tmp.has_key('flow_records'):
+             print tmp['flow_records'][1].__dict__['flow_data'].__dict__['header'][30:37]
+        else:
+            print "--NULL---"
 
     def _recv_loop(self):
         self.logger.info('Listening on %s:%s for sflow agents' %

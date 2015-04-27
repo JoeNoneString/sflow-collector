@@ -217,7 +217,6 @@ class sFlowV5FlowRecord(object):
         enterprise = flowdata_format >> enterprise_shiftbit
 
         offset += cls.MIN_LEN
-
         if flow_data_format == 1:
             # Raw Packet Header
             flow_data = sFlowV5RawPacketHeader.parser(buf, offset)
